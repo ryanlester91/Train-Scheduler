@@ -1,17 +1,19 @@
-
-  <!DOCTYPE html>
+<!DOCTYPE html>
   <html lang="en-us">
   <head>
     <meta charset="UTF-8">
     <title>Train Scheduler</title>
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
     <!-- jQuery -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <!-- Bootstrap CDN-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-    <!-- Firebase Reference -->
-    <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
+   <!-- Firebase Reference -->
+ <script src="https://www.gstatic.com/firebasejs/6.2.4/firebase.js"></script>
   </head>
+
   <body>
     <div class="container">
       <br>
@@ -24,31 +26,23 @@
       </div>
       <div class="card mb-4">
         <div class="card-header">
-          Current Train Lines
+          Current Train Lines<span id="current-time"></span>
         </div>
-        <div class="table" id="first-table">
-          <!--<thead>
-            <tr>
-              <th scope="col" id="emp-th">Employee Name
-              </th>
-              <th scope="col" id="role-th">Role
-              </th>
-              <th scope="col" id="start-th">Start Date
-              </th>
-              <th scope="col" id="months-th">Months Worked
-              </th>
-              <th scope="col" id="rate-th">Monthly Rate ($)
-              </th>
-              <th scope="col" id="billed-th">Total Billed ($)
-              </th>
-            </tr>
-          </thead>-->
-          <tbody>
+        <div class="panel-body"> <!-- PANEL BODY -->
 
-
-
-
-          </tbody>
+            <table class="table table-hover" id="table-train">  <!-- TABLE -->
+                <thead>
+                    <tr>
+                        <th>Line</th>
+                        <th>Destination</th>
+                        <th>Arrival Time</th>
+                        <th>Minutes Until Arrival</th>
+                    </tr>
+                </thead>
+                <tbody id="add-row">
+                  
+                </tbody>
+            </table> <!-- TABLE END-->
           
           <h4 class="card-title"></h4>
         </div>
@@ -63,20 +57,20 @@
           <div class="card-body">
             <form>
               <div class="form-group row">
-                <label for="bidder-name">Train Name</label>
-                <input class="form-control" id="employee-name" type="text">
+                <label for="train-name">Train Name</label>
+                <input class="form-control" id="train-name" type="text">
               </div>
               <div class="form-group row">
-                <label for="bidder-price">Destination</label>
-                <input class="form-control" id="role" type="text">
+                <label for="destination-name">Destination</label>
+                <input class="form-control" id="dest-stop" type="text">
               </div>
               <div class="form-group row">
-                <label for="bidder-price">Start Date (MM/DD/YYYY)</label>
-                <input class="form-control" id="start-date" type="number">
+                <label for="first-train">First Train- (HH:mm) Military Time</label>
+                <input class="form-control" id="first-train" type="number">
               </div>
               <div class="form-group row">
-                <label for="bidder-price">Monthly Rate</label>
-                <input class="form-control" id="monthly-rate" type="number">
+                <label for="frequency">Frequency</label>
+                <input class="form-control" id="frequency" type="number">
               </div>
               <button class="btn btn-primary" id="submit" type="submit">Submit</button>
             </form>
@@ -86,35 +80,18 @@
     </div>
     </div>
     </div>
-<!--<script src=“https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js“></script>
- <script src=“https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js”></script>-->
+    
+ 
+
+ <!----<script src=“https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js”></script>-->
  <!--jQuery-->
  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
- <!--Firebase-->
-   <!-- Firebase Reference -->
-   <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+ <script type="text/javascript" src="assets/js/app.js"></script>
 
- <script type="text/javascript">
 
-   $("#submit").on("click", function(event){
-     event.preventDefault();
+   
 
-     var empName = $("#employee-name").val().trim();
-     var role = $("#role").val().trim();
-     var startDate = $("#start-date").val().trim();
-     var monthlyRate = $("#monthly-rate").val().trim();
-     var x = `
-     <tr>
-       <td>${empName}</td>
-       <td>${role}</td>
-       <td>${startDate}</td>
-       <td>${monthlyRate}</td>
-     </tr>
-     `
-     $("tbody").append(x);
-     console.log(empName);
-     console.log(role);
-   })
- </script>
+   
 </body>
 </html>
