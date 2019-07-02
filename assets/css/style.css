@@ -6,4 +6,10 @@ td:hover {
     background-color: yellow;
 }
 
+body {
+    background-image: url(../images/BarrancaTrainBridge.jpg);
+}
 
+.container {
+    background-color: lightgreen;
+}
